@@ -1,7 +1,13 @@
 
 function List({activities}) {
   return (
-    <div>List</div>
+    <ul> {activities.map((activity)=>{
+      return <div>
+        {activity.inputField}
+      </div>
+    })}
+      <li>{activities.length} </li>
+    </ul>
   )
 }
 
