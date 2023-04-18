@@ -1,12 +1,15 @@
+import ActivityCard from "../ActivityCard/ActivityCard"
+import "./List.css";
+
+
 
 function List({activities}) {
   return (
-    <ul> {activities.map((activity)=>{
-      return <div>
-        {activity.inputField}
-      </div>
-    })}
-      <li>{activities.length} </li>
+    <ul className="activity-list"> 
+      {activities.map((activity)=>{
+      return <ActivityCard activity={activity}/>
+      })}
+      {/* <li>{activities.length} </li> */}
     </ul>
   )
 }
