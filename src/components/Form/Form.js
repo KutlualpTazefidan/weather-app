@@ -5,6 +5,9 @@ function Form({ onAddActivity }) {
     const data = Object.fromEntries(formData);
     onAddActivity(data);
   }
+  function clearLocalStorage() {
+    localStorage.clear()
+  }
   return (
     <form onSubmit={onSubmitForm}>
       <h1>Add new Activity</h1>
@@ -19,6 +22,7 @@ function Form({ onAddActivity }) {
         aria-label="new activity submit button"
         value="Submit"
       />
+      <button type="button" onClick={clearLocalStorage}> Clear Local Storage</button> 
     </form>
   );
 }
