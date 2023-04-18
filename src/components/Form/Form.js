@@ -5,6 +5,7 @@ function Form({ onAddActivity }) {
     const data = Object.fromEntries(formData);
     onAddActivity(data);
   }
+  
   return (
     <form onSubmit={onSubmitForm}>
       <h1>Add new Activity</h1>
