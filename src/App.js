@@ -8,6 +8,7 @@ function App() {
 
   function handleAddActivity(newActivity) {
     setActivities([{ id: uid(), ...newActivity }, ...activities]);
+    console.log("activities", activities);
   }
 
   return (
