@@ -1,0 +1,15 @@
+/*  {
+  background-image: linear-gradient(to bottom, #fdd835, #ffb300);
+  background-size: cover;
+  animation: sunny-animation 6s ease infinite;
+}
+
+@keyframes sunny-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+ */
