@@ -1,5 +1,5 @@
 .add-activity-button {
-  color: #f45050;
+  color: var(--color-strong);
   background-color: transparent;
   border: none;
   font-size: 3rem;
@@ -21,7 +21,7 @@
   padding: 1rem;
   border-radius: 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f0f0;
+  background-color: var(--color-light);
   transition: transform 0.5s ease-in-out;
   transform: translate(0, -11rem);
   z-index: 1;
@@ -31,7 +31,7 @@
   font-size: 1.3rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #3c486b;
+  color: var(--color-dark);
   text-align: center;
   margin-top: 0rem;
   margin-bottom: 1rem;
@@ -60,7 +60,7 @@
 }
 
 .new-activity-submit-button {
-  color: #f45050;
+  color: var(--color-strong);
   background-color: transparent;
   border: none;
   font-size: 2.5rem;
