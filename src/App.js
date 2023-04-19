@@ -21,8 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <BackgroundAnimation />
-      {/* <Header weather={weather} />
+      <Header weather={weather} />
       <List
         activities={activities}
         isGoodWeather={weather.isGoodWeather}
@@ -31,7 +30,10 @@ function App() {
       <Form
         onAddActivity={handleAddActivity}
         onBackgroundBlur={handleBackgroundBlur}
-      /> */}
+      />
+      <div className="background-container">
+        <BackgroundAnimation />
+      </div>
       {/* <button type="button" onClick={clearLocalStorage}>
         {" "}
         Clear Local Storage and Activities
