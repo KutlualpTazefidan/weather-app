@@ -6,45 +6,14 @@ import useLocalStorageState from "use-local-storage-state";
 import List from "./components/List/List";
 //import { wait } from "@testing-library/user-event/dist/utils";
 import Header from "./components/Header/Header";
+import useFetchWeatherData from "./Hooks/useFetchWeatherData";
+
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
-  const [weather, setWeather] = useState(true);
 
-  function handleDeleteActivity(activityId) {
-    const filteredActivities = activities.filter(
-      (activity) => activity.id !== activityId
-    );
-    setActivities(filteredActivities);
-  }
-
-  useEffect(() => {
-    async function fetchWeather() {
-      try {
-        const URL = "https://example-apis.vercel.app/api/weather/rainforest";
-        // const URL = "https://example-apis.vercel.app/api/weather/arctic"
-        const response = await fetch(URL);
-        const weatherData = await response.json();
-        console.log("fetch");
-        setWeather(weatherData);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    //fetchWeather ()
-    const intervallId = setInterval(() =>{fetchWeather()},5000)
-    return () => clearInterval(intervallId)
-  }, []);
-
-  function clearLocalStorage() {
-    setActivities([]);
-    localStorage.clear();
-  }
-  function handleAddActivity(newActivity) {
-    setActivities([{ id: uid(), ...newActivity }, ...activities]);
-    console.log("activities", activities);
-  }
+  const weather = useFetchWeatherData();
 
   return (
     <div className="App">
@@ -61,6 +30,21 @@ function App() {
       </button>
     </div>
   );
+
+  function handleAddActivity(newActivity) {
+    setActivities([{ id: uid(), ...newActivity }, ...activities]);
+    console.log("activities", activities);
+  }
+  function handleDeleteActivity(activityId) {
+    const filteredActivities = activities.filter(
+      (activity) => activity.id !== activityId
+    );
+    setActivities(filteredActivities);
+  }
+  function clearLocalStorage() {
+    setActivities([]);
+    localStorage.clear();
+  }
 }
 
 export default App;
