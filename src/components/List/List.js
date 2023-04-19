@@ -1,17 +1,22 @@
-import ActivityCard from "../ActivityCard/ActivityCard"
+import ActivityCard from "../ActivityCard/ActivityCard";
 import "./List.css";
 
-
-
-function List({activities}) {
+function List({ activities, isGoodWeather }) {
   return (
-    <ul className="activity-list"> 
-      {activities.map((activity)=>{
-      return <ActivityCard activity={activity}/>
-      })}
-      {/* <li>{activities.length} </li> */}
+    <ul className="activity-list">
+      {isGoodWeather
+        ? activities
+            .filter((activity) => activity.checkboxField)
+            .map((activity) => {
+              return <ActivityCard activity={activity} />;
+            })
+        : activities
+            .filter((activity) => !activity.checkboxField)
+            .map((activity) => {
+              return <ActivityCard activity={activity} />;
+            })}
     </ul>
-  )
+  );
 }
 
-export default List
+export default List;
