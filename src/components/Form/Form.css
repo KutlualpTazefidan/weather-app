@@ -1,0 +1,69 @@
+.add-activity-button {
+  color: #f45050;
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  bottom: 0;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.add-activity-form {
+  display: flex;
+  position: fixed;
+  top: 1rem;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  transition: transform 0.5s ease-in-out;
+  transform: translate(0, -10rem);
+}
+.activity-form-heading {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #3c486b;
+  text-align: center;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  padding-top: 0;
+  margin-left: 1rem;
+}
+.form-label {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+#inputName {
+  padding: 0.3rem;
+  margin-bottom: 0.3rem;
+  border: 1px;
+  border-radius: 10px;
+}
+#goodWeatherCheckBox {
+  padding: 0.3rem;
+  margin-bottom: 1rem;
+  transform: scale(1.5);
+  border: none;
+}
+.new-activity-submit-button {
+  color: #f45050;
+  background-color: transparent;
+  border: none;
+  font-size: 2.5rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+.active {
+  transform: translate(0, 0);
+}
+.blur-background {
+  width: 100vh;
+  height: 100vh;
+}
