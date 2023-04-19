@@ -7,6 +7,7 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .add-activity-form {
@@ -23,6 +24,7 @@
   background-color: #f0f0f0;
   transition: transform 0.5s ease-in-out;
   transform: translate(0, -11rem);
+  z-index: 1;
 }
 
 .activity-form-heading {

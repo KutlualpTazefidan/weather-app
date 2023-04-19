@@ -1,9 +1,11 @@
 .weather-status-bar {
     font-size: 3rem;
+    z-index: 1;
 }
 
 .weather-message {
     font-size: 1.5rem;
     font-weight: 600;
     max-width: 20rem;
+    z-index: 1;
 }
