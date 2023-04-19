@@ -22,7 +22,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f0f0;
   transition: transform 0.5s ease-in-out;
-  transform: translate(0, -10rem);
+  transform: translate(0, -11rem);
 }
 
 .activity-form-heading {
@@ -69,5 +69,4 @@
 
 .active {
   transform: translate(0, 0);
-  /* backdrop-filter: blur(8px); */
 }

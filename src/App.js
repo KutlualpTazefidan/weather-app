@@ -19,9 +19,9 @@ function App() {
   const weather = useFetchWeatherData();
 
   return (
-    <div className={backgroundBlur}>
-      {/*       <Header weather={weather} />
-       */}{" "}
+    <div className="App">
+      <Header weather={weather} />
+
       <List
         activities={activities}
         isGoodWeather={weather.isGoodWeather}

@@ -1,14 +1,25 @@
 .activity-card {
     display: flex;
     justify-content: space-between;
-    left: 0;
+    align-items: center;
     border: solid;
-    color: white;
+    color: 3C486B;
     border-color: rgb(92, 89, 89);
-    background-color: rgba(128, 128, 128, 0.9);
-    padding: 1rem;
+    background-color: #F0F0F0;
+    padding: 0.5rem;
     margin: 1rem;
-    min-width: 10rem;
+    min-width: 20rem;
     font-size: large;
     font-weight: bold;
+    border-radius: 1rem;
+    list-style-type: none;
+    margin-left: -1rem;
+
+}
+
+.delete-activity-button {
+    background-color: transparent;
+    border: none;
+    font-size: 2.5rem;
+
 }

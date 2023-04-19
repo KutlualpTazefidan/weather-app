@@ -1,14 +1,10 @@
 .App {
-  position: relative;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #3c486b;
-  backdrop-filter: none;
+  border: solid;
+  border-radius: 1rem;
+  border-color: hsl(225, 28%, 33%);
+  min-height: 99vh;
 }
-
-/* .App--blur {
-  color: #3c486b;
-  filter: blur(10px);
-} */
