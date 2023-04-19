@@ -6,7 +6,7 @@ function Header({ weather }) {
   return (
     <>
       <div className="weather-status-bar">
-        {weather.condition} {weather.temperature}
+        {weather.condition} {weather.temperature} °C
       </div>
       <p className="weather-message">{weatherMessage}</p>
     </>

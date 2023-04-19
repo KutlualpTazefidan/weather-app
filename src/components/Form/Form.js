@@ -28,7 +28,6 @@ function Form({ onAddActivity }) {
       >
         {isAddActivityButtonPressed ? <HiPlusCircle /> : <HiMinusCircle />}
       </button>
-      <div className="blur-background"></div>
       <form className={formClassName} onSubmit={onSubmitForm}>
         <p className="activity-form-heading">new activity</p>
         <div className="input-field">

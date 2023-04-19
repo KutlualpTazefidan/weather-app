@@ -70,8 +70,3 @@
 .active {
   transform: translate(0, 0);
 }
-
-.blur-background {
-  width: 100vh;
-  height: 100vh;
-}
