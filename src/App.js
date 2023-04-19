@@ -7,16 +7,19 @@ import List from "./components/List/List";
 //import { wait } from "@testing-library/user-event/dist/utils";
 import Header from "./components/Header/Header";
 import useFetchWeatherData from "./Hooks/useFetchWeatherData";
+import { useState } from "react";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
 
+  const [backgroundBlur, setBackgroundBlur] = useState("App");
+
   const weather = useFetchWeatherData();
 
   return (
-    <div className="App">
+    <div className={backgroundBlur}>
       {/*       <Header weather={weather} />
        */}{" "}
       <List
@@ -24,7 +27,10 @@ function App() {
         isGoodWeather={weather.isGoodWeather}
         onDeleteActivity={handleDeleteActivity}
       />
-      <Form onAddActivity={handleAddActivity} />
+      <Form
+        onAddActivity={handleAddActivity}
+        onBackgroundBlur={handleBackgroundBlur}
+      />
       {/* <button type="button" onClick={clearLocalStorage}>
         {" "}
         Clear Local Storage and Activities
@@ -41,6 +47,9 @@ function App() {
       (activity) => activity.id !== activityId
     );
     setActivities(filteredActivities);
+  }
+  function handleBackgroundBlur(blur) {
+    blur ? setBackgroundBlur("App App--blur") : setBackgroundBlur("App");
   }
   function clearLocalStorage() {
     setActivities([]);
