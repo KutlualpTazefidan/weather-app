@@ -3,7 +3,7 @@ import { BsSendPlusFill } from "react-icons/bs";
 import "./Form.css";
 import { useState } from "react";
 
-function Form({ onAddActivity }) {
+function Form({ onAddActivity, onBackgroundBlur }) {
   function onSubmitForm(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -18,6 +18,7 @@ function Form({ onAddActivity }) {
     isAddActivityButtonPressed
       ? setFormClassName("add-activity-form active")
       : setFormClassName("add-activity-form");
+    // onBackgroundBlur(isAddActivityButtonPressed);
   }
   return (
     <>
@@ -28,7 +29,6 @@ function Form({ onAddActivity }) {
       >
         {isAddActivityButtonPressed ? <HiPlusCircle /> : <HiMinusCircle />}
       </button>
-      <div className="blur-background"></div>
       <form className={formClassName} onSubmit={onSubmitForm}>
         <p className="activity-form-heading">new activity</p>
         <div className="input-field">

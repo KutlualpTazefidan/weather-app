@@ -5,7 +5,10 @@
   flex-direction: column;
   align-items: center;
   color: #3c486b;
+  backdrop-filter: none;
 }
+
 /* .App--blur {
-  filter: blur(2px);
+  color: #3c486b;
+  filter: blur(10px);
 } */
