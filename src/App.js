@@ -1,6 +1,6 @@
 import "./App.css";
 import Form from "./components/Form/Form";
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import List from "./components/List/List";
@@ -17,17 +17,18 @@ function App() {
 
   return (
     <div className="App">
-      <Header weather={weather} />
+      {/*       <Header weather={weather} />
+       */}{" "}
       <List
         activities={activities}
         isGoodWeather={weather.isGoodWeather}
         onDeleteActivity={handleDeleteActivity}
       />
       <Form onAddActivity={handleAddActivity} />
-      <button type="button" onClick={clearLocalStorage}>
+      {/* <button type="button" onClick={clearLocalStorage}>
         {" "}
         Clear Local Storage and Activities
-      </button>
+      </button> */}
     </div>
   );
 
