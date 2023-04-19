@@ -1,9 +1,10 @@
 .activity-card {
     display: flex;
+    justify-content: space-between;
     left: 0;
     border: solid;
     color: white;
-    border-color:rgb(92, 89, 89);
+    border-color: rgb(92, 89, 89);
     background-color: rgba(128, 128, 128, 0.9);
     padding: 1rem;
     margin: 1rem;

@@ -10,22 +10,33 @@ function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
-  const [weather, setWeather] = useState (true)
-  useEffect (() =>{
-      async function  fetchWeather() {
-    try {
-      const URL = "https://example-apis.vercel.app/api/weather/rainforest"   //https://example-apis.vercel.app/api/weather/arctic
+  const [weather, setWeather] = useState(true);
 
-      const response = await fetch (URL)
-      const weatherData = await response.json ()
-      setWeather (weatherData)
-      console.log(weather);
-    } catch (error) {
-      console.log(error);
-    }
+  function handleDeleteActivity(activityId) {
+    const filteredActivities = activities.filter(
+      (activity) => activity.id !== activityId
+    );
+    // console.log(filteredActivities);
+    // console.log(activities);
+    // console.log(activityId);
+    setActivities(filteredActivities);
   }
-  fetchWeather()
-  },[]) 
+
+  useEffect(() => {
+    async function fetchWeather() {
+      try {
+        const URL = "https://example-apis.vercel.app/api/weather/rainforest";
+        // const URL = "https://example-apis.vercel.app/api/weather/arctic"
+        const response = await fetch(URL);
+        const weatherData = await response.json();
+        setWeather(weatherData);
+        // console.log(weather);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchWeather();
+  }, []);
 
   function clearLocalStorage() {
     setActivities([]);
@@ -39,14 +50,16 @@ function App() {
   return (
     <div className="App">
       <Header weather={weather} />
-      <List activities={activities} isGoodWeather={weather.isGoodWeather} />
+      <List
+        activities={activities}
+        isGoodWeather={weather.isGoodWeather}
+        onDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity} />
       <button type="button" onClick={clearLocalStorage}>
         {" "}
         Clear Local Storage and Activities
-
       </button>
-      
     </div>
   );
 }
