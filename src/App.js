@@ -16,9 +16,6 @@ function App() {
     const filteredActivities = activities.filter(
       (activity) => activity.id !== activityId
     );
-    // console.log(filteredActivities);
-    // console.log(activities);
-    // console.log(activityId);
     setActivities(filteredActivities);
   }
 
@@ -29,13 +26,15 @@ function App() {
         // const URL = "https://example-apis.vercel.app/api/weather/arctic"
         const response = await fetch(URL);
         const weatherData = await response.json();
+        console.log("fetch");
         setWeather(weatherData);
-        // console.log(weather);
       } catch (error) {
         console.log(error);
       }
     }
-    fetchWeather();
+    //fetchWeather ()
+    const intervallId = setInterval(() =>{fetchWeather()},5000)
+    return () => clearInterval(intervallId)
   }, []);
 
   function clearLocalStorage() {
