@@ -13,7 +13,7 @@
     font-weight: bold;
     border-radius: 1rem;
     list-style-type: none;
-    margin-left: -1rem;
+    margin-left: -1.5rem;
     z-index: 1;
     background: rgba(255, 255, 255, 0.2);
     border-color: rgb(92, 89, 89);
@@ -36,4 +36,6 @@
 
 .activity-text {
     padding-left: 0.5rem;
+    inline-size: 15rem;
+    overflow-wrap: break-word;
 }
