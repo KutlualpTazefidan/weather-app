@@ -8,6 +8,7 @@ import List from "./components/List/List";
 import Header from "./components/Header/Header";
 import useFetchWeatherData from "./Hooks/useFetchWeatherData";
 import { useState } from "react";
+import BackgroundAnimation from "./components/BackgroundAnimation/BackgroundAnimation";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
@@ -20,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header weather={weather} />
-
+      <BackgroundAnimation />
+      {/* <Header weather={weather} />
       <List
         activities={activities}
         isGoodWeather={weather.isGoodWeather}
@@ -30,7 +31,7 @@ function App() {
       <Form
         onAddActivity={handleAddActivity}
         onBackgroundBlur={handleBackgroundBlur}
-      />
+      /> */}
       {/* <button type="button" onClick={clearLocalStorage}>
         {" "}
         Clear Local Storage and Activities
