@@ -17,8 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      {/*       <Header weather={weather} />
-       */}{" "}
+      <Header weather={weather} />
       <List
         activities={activities}
         isGoodWeather={weather.isGoodWeather}
