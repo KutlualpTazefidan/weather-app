@@ -8,12 +8,12 @@ function List({ activities, isGoodWeather }) {
         ? activities
             .filter((activity) => activity.checkboxField)
             .map((activity) => {
-              return <ActivityCard activity={activity} />;
+              return <ActivityCard key={activity.id} activity={activity} />;
             })
         : activities
             .filter((activity) => !activity.checkboxField)
             .map((activity) => {
-              return <ActivityCard activity={activity} />;
+              return <ActivityCard key={activity.id} activity={activity} />;
             })}
     </ul>
   );

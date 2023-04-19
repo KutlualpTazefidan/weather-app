@@ -2,7 +2,7 @@ import "./ActivityCard.css";
 
 function ActivityCard({activity}) {
   return (
-    <div className="activity-card">{activity.inputField}</div>
+    <li className="activity-card" >{activity.inputField} </li>
   )
 }
 
