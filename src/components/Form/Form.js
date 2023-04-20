@@ -19,7 +19,7 @@ function Form({ onAddActivity, onBackgroundBlur, onFetchWeather }) {
       </button>
       <form className={formClassName} onSubmit={onSubmitForm}>
         <p className="activity-form-heading">new activity</p>
-        <div className="input-field">
+        <div className="input-field" id="firstInputfield">
           <label className="form-label" htmlFor="inputName">
             Name:
           </label>
@@ -62,6 +62,8 @@ function Form({ onAddActivity, onBackgroundBlur, onFetchWeather }) {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     onAddActivity(data);
+    e.target.reset();
+    // console.log(e.target);
   }
   function handleAddActivityButtonPressed() {
     setIsAddActivityButtonPressed(!isAddActivityButtonPressed);
