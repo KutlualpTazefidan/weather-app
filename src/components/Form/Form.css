@@ -1,5 +1,5 @@
 .add-activity-button {
-  color: #f45050;
+  color: var(--color-strong);
   background-color: transparent;
   border: none;
   font-size: 3rem;
@@ -7,6 +7,7 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .add-activity-form {
@@ -14,22 +15,31 @@
   position: fixed;
   top: 1rem;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
   align-items: flex-start;
   border: none;
   padding: 1rem;
   border-radius: 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f0f0;
+  background-color: var(--color-light);
   transition: transform 0.5s ease-in-out;
   transform: translate(0, -11rem);
+  z-index: 1;
+  gap: 1rem;
+  background: rgba(149, 146, 146, 0.475);
+  border-color: rgb(92, 89, 89);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .activity-form-heading {
   font-size: 1.3rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #3c486b;
+  /* color: var(--color-light); */
   text-align: center;
   margin-top: 0rem;
   margin-bottom: 1rem;
@@ -39,34 +49,63 @@
 }
 
 .form-label {
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding-right: 1rem;
+  /* margin-bottom: 1rem; */
+  /* color: var(--color-light); */
 }
 
 #inputName {
   padding: 0.3rem;
-  margin-bottom: 0.3rem;
+  /* margin-bottom: 0.8rem; */
   border: 1px;
   border-radius: 10px;
 }
 
 #goodWeatherCheckBox {
-  padding: 0.3rem;
-  margin-bottom: 1rem;
-  transform: scale(1.5);
+  /* padding: 0.3rem; */
+  /* margin-top: -0.5rem; */
+  /* margin-bottom: 0.5rem; */
+  transform: scale(2);
   border: none;
+  border-radius: 0rem;
 }
 
 .new-activity-submit-button {
-  color: #f45050;
+  color: var(--color-strong);
   background-color: transparent;
   border: none;
   font-size: 2.5rem;
   position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
+  right: 1.5rem;
+  top: 1.5rem;
 }
 
 .active {
   transform: translate(0, 0);
+}
+
+.input-field {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  /* content: center */
+}
+
+.dev-tools {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.dev-tools>button {
+  background: transparent;
+  border: none;
 }

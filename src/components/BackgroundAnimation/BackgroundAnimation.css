@@ -1,0 +1,84 @@
+.rainDrop {
+    width: 1px;
+    height: 89px;
+    position: fixed;
+    bottom: 500px;
+}
+
+.snowFlake {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+
+i {
+    position: absolute;
+    height: 200px;
+    background: linear-gradient(transparent, #fff);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: rain-fall 5s linear infinite;
+}
+
+i:nth-child(3n + 1) {
+    background: linear-gradient(transparent, #0ff);
+}
+
+i:nth-child(3n + 2) {
+    background: linear-gradient(transparent, #0f0);
+}
+
+i:nth-child(3n + 3) {
+    background: linear-gradient(transparent, #f00);
+}
+
+@keyframes rain-fall {
+    0% {
+        transform: translateY(-200px);
+    }
+
+    100% {
+        transform: translateY(calc(100vh + 200px));
+    }
+}
+
+.background-image-container {
+    position: absolute;
+    /* width: 500%; */
+    /* height: 500%; */
+    width: 1000px;
+    height: 1000px;
+    background:
+        repeating-radial-gradient(circle at 50%y,
+            #f1ce7d,
+            #ccc 50px);
+
+    /* animation: rotating 1s linear infinite; */
+
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.--rainy {
+    background:
+        repeating-radial-gradient(circle at 0 0,
+            #000000,
+            #4c4a45 50px);
+}
+
+.--snowy {
+    background:
+        repeating-radial-gradient(circle at 0 0,
+            #ffffff,
+            #7d7a70 50px);
+}

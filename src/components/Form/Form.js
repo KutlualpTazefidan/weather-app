@@ -3,23 +3,11 @@ import { BsSendPlusFill } from "react-icons/bs";
 import "./Form.css";
 import { useState } from "react";
 
-function Form({ onAddActivity, onBackgroundBlur }) {
-  function onSubmitForm(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    onAddActivity(data);
-  }
+function Form({ onAddActivity, onBackgroundBlur, onFetchWeather }) {
   const [isAddActivityButtonPressed, setIsAddActivityButtonPressed] =
     useState(true);
   const [formClassName, setFormClassName] = useState("add-activity-form");
-  function handleAddActivityButtonPressed() {
-    setIsAddActivityButtonPressed(!isAddActivityButtonPressed);
-    isAddActivityButtonPressed
-      ? setFormClassName("add-activity-form active")
-      : setFormClassName("add-activity-form");
-    // onBackgroundBlur(isAddActivityButtonPressed);
-  }
+
   return (
     <>
       <button
@@ -31,7 +19,7 @@ function Form({ onAddActivity, onBackgroundBlur }) {
       </button>
       <form className={formClassName} onSubmit={onSubmitForm}>
         <p className="activity-form-heading">new activity</p>
-        <div className="input-field">
+        <div className="input-field" id="firstInputfield">
           <label className="form-label" htmlFor="inputName">
             Name:
           </label>
@@ -55,8 +43,44 @@ function Form({ onAddActivity, onBackgroundBlur }) {
           <BsSendPlusFill />
         </button>
       </form>
+      <div className="dev-tools">
+        <button type="button" onClick={createSunnyDay}>
+          ☀️
+        </button>
+        <button type="button" onClick={createRainyDay}>
+          ⛈️
+        </button>
+        <button type="button" onClick={createSnowyDay}>
+          ☁️
+        </button>
+      </div>
     </>
   );
+
+  function onSubmitForm(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    onAddActivity(data);
+    e.target.reset();
+    // console.log(e.target);
+  }
+  function handleAddActivityButtonPressed() {
+    setIsAddActivityButtonPressed(!isAddActivityButtonPressed);
+    isAddActivityButtonPressed
+      ? setFormClassName("add-activity-form active")
+      : setFormClassName("add-activity-form");
+  }
+
+  function createSunnyDay() {
+    onFetchWeather("sahara");
+  }
+  function createRainyDay() {
+    onFetchWeather("rainforest");
+  }
+  function createSnowyDay() {
+    onFetchWeather("arctic");
+  }
 }
 
 export default Form;
