@@ -37,10 +37,6 @@ function App() {
       <div className="background-container">
         <BackgroundAnimation weather={weather} />
       </div>
-      {/* <button type="button" onClick={clearLocalStorage}>
-        {" "}
-        Clear Local Storage and Activities
-      </button> */}
     </div>
   );
 
