@@ -32,7 +32,7 @@ function App() {
         onBackgroundBlur={handleBackgroundBlur}
       />
       <div className="background-container">
-        <BackgroundAnimation />
+        <BackgroundAnimation weather={weather} />
       </div>
       {/* <button type="button" onClick={clearLocalStorage}>
         {" "}
@@ -54,10 +54,10 @@ function App() {
   function handleBackgroundBlur(blur) {
     blur ? setBackgroundBlur("App App--blur") : setBackgroundBlur("App");
   }
-  function clearLocalStorage() {
-    setActivities([]);
-    localStorage.clear();
-  }
+  // function clearLocalStorage() {
+  //   setActivities([]);
+  //   localStorage.clear();
+  // }
 }
 
 export default App;

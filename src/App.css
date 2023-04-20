@@ -6,7 +6,16 @@
   border: solid;
   border-radius: 1rem;
   border-color: hsl(225, 28%, 33%);
-  min-height: 99vh;
   background-color: rgb(0, 0, 0);
   z-index: -2;
+  overflow: hidden;
+}
+
+.background-container {
+  position: fixed;
+  width: 110%;
+  height: 110%;
+  margin: -1rem;
+  overflow: hidden;
+  z-index: 0;
 }

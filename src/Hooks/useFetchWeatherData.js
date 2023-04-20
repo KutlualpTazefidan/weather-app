@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 function useFetchWeatherData() {
-  const [weather, setWeather] = useState(true);
+  const [weather, setWeather] = useLocalStorageState("weatherData", {
+    defaultValue: [],
+  });
   useEffect(() => {
     async function fetchWeather() {
       try {
