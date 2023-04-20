@@ -45,6 +45,7 @@ i:nth-child(3n + 3) {
 }
 
 .background-image-container {
+    position: absolute;
     width: 500%;
     height: 500%;
     width: 100%;

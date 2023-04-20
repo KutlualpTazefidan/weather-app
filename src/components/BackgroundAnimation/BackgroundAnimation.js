@@ -6,11 +6,8 @@ function BackgroundAnimation({ weather }) {
   const [backgroundClassName, setBackgroundClassName] = useState(
     "background-image-container"
   );
-  const rainyWeather = ["⛈️", "🌧️", "🌧️", "🌧️", "🌦️", "🌦️"];
-  const snowyWeather = ["☁️", "☁️", "🌨️"];
-  const sunnyWeather = ["🌤️", "🌤️", "☀️", "☀️"];
   function rain() {
-    const amount = 2;
+    const amount = 20;
     const backgroundContainer = document.getElementsByClassName(
       "background-container"
     )[0];
@@ -30,18 +27,18 @@ function BackgroundAnimation({ weather }) {
   }
 
   function snowFall() {
-    const amount = 5;
+    const amount = 20;
     const backgroundContainer = document.getElementsByClassName(
       "background-container"
     )[0];
     for (let index = 0; index < amount; index++) {
-      const randomX = randomRange(-100000, 100000) * 0.001;
+      const randomX = randomRange(-100000, 100000) * 0.01;
       const randomOffset = randomRange(0, 100000) * 0.001;
-      const randomXEnd = Math.floor(randomX + randomOffset) + "vh";
-      const randomXEndYoyo = Math.floor(randomX + randomOffset / 2) + "vh";
+      const randomXEnd = Math.floor(randomX + randomOffset) / 1000 + "vh";
+      const randomXEndYoyo = Math.floor(randomX + randomOffset / 2) / 10 + "vh";
       const randomYoyoTime = randomRange(30000, 80000) / 100000;
-      const randomYoyoY = randomYoyoTime * 100 + "vh";
-      const randomScale = Math.random(10000);
+      const randomYoyoY = randomYoyoTime + "vh";
+      const randomScale = Math.random(10000) * 10;
       const fallDuration = randomRange(10, 30) * 1 + "s";
       const fallDelay = Math.random(30) * -1 + "s";
       const keyframesRule = `@keyframes snow-flake${index} {
@@ -53,6 +50,8 @@ function BackgroundAnimation({ weather }) {
           transform: translate(${randomXEndYoyo}, 100vh) scale(${randomScale});
         }
       }`;
+
+      console.log(keyframesRule);
       const styleSheet = document.styleSheets[0];
       styleSheet.insertRule(keyframesRule);
       const flake = document.createElement("div");
@@ -78,20 +77,24 @@ function BackgroundAnimation({ weather }) {
     return min + Math.floor(rand * (max - min + 1));
   }
 
+  function clearDropsAndFlakes() {
+    const rainDropDomElements = document.getElementsByClassName("rainDrop");
+    while (rainDropDomElements.length > 0) {
+      rainDropDomElements[0].remove();
+    }
+    const snowFlakesDomElements = document.getElementsByClassName("snowFlake");
+    while (snowFlakesDomElements.length > 0) {
+      snowFlakesDomElements[0].remove();
+    }
+  }
+
   useEffect(() => {
+    clearDropsAndFlakes();
     if (weather.location === "Rainforest") {
-      const rainDropDomElements = document.getElementsByClassName("rainDrop");
-      while (rainDropDomElements.length > 0) {
-        rainDropDomElements[0].remove();
-      }
       rain();
       setBackgroundClassName("background-image-container --rainy");
     }
     if (weather.location === "Arctic") {
-      const rainDropDomElements = document.getElementsByClassName("rainDrop");
-      while (rainDropDomElements.length > 0) {
-        rainDropDomElements[0].remove();
-      }
       snowFall();
       setBackgroundClassName("background-image-container --snowy");
     }
