@@ -18,10 +18,6 @@ function BackgroundAnimation({ weather, onColorModeChange }) {
       setBackgroundClassName("background-image-container --snowy");
     }
     if (weather.location === "Sahara") {
-      const rainDropDomElements = document.getElementsByClassName("rainDrop");
-      while (rainDropDomElements.length > 0) {
-        rainDropDomElements[0].remove();
-      }
       setBackgroundClassName("background-image-container");
     }
     onColorModeChange(weather.location);
