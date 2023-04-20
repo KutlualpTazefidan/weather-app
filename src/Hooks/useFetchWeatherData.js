@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
-function useFetchWeatherData() {
+function useFetchWeatherData(URL) {
   const [weather, setWeather] = useLocalStorageState("weatherData", {
     defaultValue: [],
   });
   useEffect(() => {
     async function fetchWeather() {
       try {
-        const URL = "https://example-apis.vercel.app/api/weather/rainforest";
-        // const URL = "https://example-apis.vercel.app/api/weather/arctic"
+        console.log("URL", URL);
         const response = await fetch(URL);
         const weatherData = await response.json();
         console.log("fetch");
@@ -21,7 +20,7 @@ function useFetchWeatherData() {
     fetchWeather();
     // const intervallId = setInterval(() =>{fetchWeather()},5000)
     // return () => clearInterval(intervallId)
-  }, []);
+  }, [URL]);
   return weather;
 }
 

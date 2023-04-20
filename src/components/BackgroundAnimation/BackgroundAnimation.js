@@ -6,8 +6,8 @@ function BackgroundAnimation({ weather }) {
   const [backgroundClassName, setBackgroundClassName] = useState(
     "background-image-container"
   );
-  const rainyWeather = ["⛈️", "🌧️", "🌧️", "🌧️"];
-  const snowyWeather = ["☁️", "☁️"];
+  const rainyWeather = ["⛈️", "🌧️", "🌧️", "🌧️", "🌦️", "🌦️"];
+  const snowyWeather = ["☁️", "☁️", "🌨️"];
   const sunnyWeather = ["🌤️", "🌤️", "☀️", "☀️"];
   function rain() {
     const amount = 2;
@@ -30,7 +30,7 @@ function BackgroundAnimation({ weather }) {
   }
 
   function snowFall() {
-    const amount = 2;
+    const amount = 5;
     const backgroundContainer = document.getElementsByClassName(
       "background-container"
     )[0];
@@ -79,13 +79,31 @@ function BackgroundAnimation({ weather }) {
   }
 
   useEffect(() => {
-    console.log(weather);
-    if (rainyWeather.includes(weather.condition)) {
+    if (weather.location === "Rainforest") {
+      const rainDropDomElements = document.getElementsByClassName("rainDrop");
+      while (rainDropDomElements.length > 0) {
+        rainDropDomElements[0].remove();
+      }
       rain();
       setBackgroundClassName("background-image-container --rainy");
     }
-    if (snowyWeather.includes(weather.condition)) snowFall();
-  }, []);
+    if (weather.location === "Arctic") {
+      const rainDropDomElements = document.getElementsByClassName("rainDrop");
+      while (rainDropDomElements.length > 0) {
+        rainDropDomElements[0].remove();
+      }
+      snowFall();
+      setBackgroundClassName("background-image-container --snowy");
+    }
+    if (weather.location === "Sahara") {
+      const rainDropDomElements = document.getElementsByClassName("rainDrop");
+      while (rainDropDomElements.length > 0) {
+        rainDropDomElements[0].remove();
+      }
+      setBackgroundClassName("background-image-container");
+    }
+    console.log(weather.location);
+  }, [weather.location]);
   return <div className={backgroundClassName}></div>;
 }
 export default BackgroundAnimation;

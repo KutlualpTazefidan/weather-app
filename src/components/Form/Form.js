@@ -3,12 +3,13 @@ import { BsSendPlusFill } from "react-icons/bs";
 import "./Form.css";
 import { useState } from "react";
 
-function Form({ onAddActivity, onBackgroundBlur }) {
+function Form({ onAddActivity, onBackgroundBlur, onFetchWeather }) {
   function onSubmitForm(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     onAddActivity(data);
+    console.log(e.target.elements);
   }
   const [isAddActivityButtonPressed, setIsAddActivityButtonPressed] =
     useState(true);
@@ -18,8 +19,18 @@ function Form({ onAddActivity, onBackgroundBlur }) {
     isAddActivityButtonPressed
       ? setFormClassName("add-activity-form active")
       : setFormClassName("add-activity-form");
-    // onBackgroundBlur(isAddActivityButtonPressed);
   }
+
+  function createSunnyDay() {
+    onFetchWeather("sahara");
+  }
+  function createRainyDay() {
+    onFetchWeather("rainforest");
+  }
+  function createSnowyDay() {
+    onFetchWeather("arctic");
+  }
+
   return (
     <>
       <button
@@ -55,6 +66,17 @@ function Form({ onAddActivity, onBackgroundBlur }) {
           <BsSendPlusFill />
         </button>
       </form>
+      <div className="dev-tools">
+        <button type="button" onClick={createSunnyDay}>
+          ☀️
+        </button>
+        <button type="button" onClick={createRainyDay}>
+          ⛈️
+        </button>
+        <button type="button" onClick={createSnowyDay}>
+          ☁️
+        </button>
+      </div>
     </>
   );
 }

@@ -14,10 +14,12 @@ function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
-
+  const [weatherURL, setWeatherURL] = useState(
+    "https://example-apis.vercel.app/api/weather/rainforest"
+  );
   const [backgroundBlur, setBackgroundBlur] = useState("App");
 
-  const weather = useFetchWeatherData();
+  const weather = useFetchWeatherData(weatherURL);
 
   return (
     <div className="App">
@@ -29,6 +31,7 @@ function App() {
       />
       <Form
         onAddActivity={handleAddActivity}
+        onFetchWeather={handleFetchWeather}
         onBackgroundBlur={handleBackgroundBlur}
       />
       <div className="background-container">
@@ -53,6 +56,11 @@ function App() {
   }
   function handleBackgroundBlur(blur) {
     blur ? setBackgroundBlur("App App--blur") : setBackgroundBlur("App");
+  }
+  function handleFetchWeather(weatherLocation) {
+    const URL = `https://example-apis.vercel.app/api/weather/${weatherLocation}`;
+    setWeatherURL(URL);
+    console.log(URL);
   }
   // function clearLocalStorage() {
   //   setActivities([]);
