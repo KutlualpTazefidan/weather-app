@@ -46,14 +46,27 @@ i:nth-child(3n + 3) {
 
 .background-image-container {
     position: absolute;
-    width: 500%;
-    height: 500%;
-    width: 100%;
-    height: 100%;
+    /* width: 500%; */
+    /* height: 500%; */
+    width: 1000px;
+    height: 1000px;
     background:
-        repeating-radial-gradient(circle at 0 0,
+        repeating-radial-gradient(circle at 50%y,
             #f1ce7d,
             #ccc 50px);
+
+    /* animation: rotating 1s linear infinite; */
+
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .--rainy {
