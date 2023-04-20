@@ -54,3 +54,10 @@ i:nth-child(3n + 3) {
             #d1b572,
             #ccc 50px);
 }
+
+.--rainy {
+    background:
+        repeating-radial-gradient(circle at 0 0,
+            #000000,
+            #4c4a45 50px);
+}

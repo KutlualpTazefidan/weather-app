@@ -1,8 +1,11 @@
 // import ReactRain from "react-rain-animation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./BackgroundAnimation.css";
 
 function BackgroundAnimation({ weather }) {
+  const [backgroundClassName, setBackgroundClassName] = useState(
+    "background-image-container"
+  );
   const rainyWeather = ["⛈️", "🌧️", "🌧️", "🌧️"];
   const snowyWeather = ["☁️", "☁️"];
   const sunnyWeather = ["🌤️", "🌤️", "☀️", "☀️"];
@@ -77,9 +80,12 @@ function BackgroundAnimation({ weather }) {
 
   useEffect(() => {
     console.log(weather);
-    if (rainyWeather.includes(weather.condition)) rain();
+    if (rainyWeather.includes(weather.condition)) {
+      rain();
+      setBackgroundClassName("background-image-container --rainy");
+    }
     if (snowyWeather.includes(weather.condition)) snowFall();
   }, []);
-  return <div className="background-image-container"></div>;
+  return <div className={backgroundClassName}></div>;
 }
 export default BackgroundAnimation;
