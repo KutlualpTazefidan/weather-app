@@ -26,7 +26,7 @@
   transform: translate(0, -11rem);
   z-index: 1;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(149, 146, 146, 0.475);
   border-color: rgb(92, 89, 89);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
