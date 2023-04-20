@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
 function useFetchWeatherData(URL) {
@@ -8,7 +8,6 @@ function useFetchWeatherData(URL) {
   useEffect(() => {
     async function fetchWeather() {
       try {
-        console.log("URL", URL);
         const response = await fetch(URL);
         const weatherData = await response.json();
         console.log("fetch");

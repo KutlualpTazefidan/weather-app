@@ -6,6 +6,28 @@ function BackgroundAnimation({ weather, onColorModeChange }) {
   const [backgroundClassName, setBackgroundClassName] = useState(
     "background-image-container"
   );
+
+  useEffect(() => {
+    clearDropsAndFlakes();
+    if (weather.location === "Rainforest") {
+      rain();
+      setBackgroundClassName("background-image-container --rainy");
+    }
+    if (weather.location === "Arctic") {
+      snowFall();
+      setBackgroundClassName("background-image-container --snowy");
+    }
+    if (weather.location === "Sahara") {
+      const rainDropDomElements = document.getElementsByClassName("rainDrop");
+      while (rainDropDomElements.length > 0) {
+        rainDropDomElements[0].remove();
+      }
+      setBackgroundClassName("background-image-container");
+    }
+    onColorModeChange(weather.location);
+  }, [weather.location]);
+  return <div className={backgroundClassName}></div>;
+
   function rain() {
     const amount = 20;
     const backgroundContainer = document.getElementsByClassName(
@@ -51,7 +73,6 @@ function BackgroundAnimation({ weather, onColorModeChange }) {
         }
       }`;
 
-      console.log(keyframesRule);
       const styleSheet = document.styleSheets[0];
       styleSheet.insertRule(keyframesRule);
       const flake = document.createElement("div");
@@ -87,27 +108,5 @@ function BackgroundAnimation({ weather, onColorModeChange }) {
       snowFlakesDomElements[0].remove();
     }
   }
-
-  useEffect(() => {
-    clearDropsAndFlakes();
-    if (weather.location === "Rainforest") {
-      rain();
-      setBackgroundClassName("background-image-container --rainy");
-    }
-    if (weather.location === "Arctic") {
-      snowFall();
-      setBackgroundClassName("background-image-container --snowy");
-    }
-    if (weather.location === "Sahara") {
-      const rainDropDomElements = document.getElementsByClassName("rainDrop");
-      while (rainDropDomElements.length > 0) {
-        rainDropDomElements[0].remove();
-      }
-      setBackgroundClassName("background-image-container");
-    }
-    console.log(weather.location);
-    onColorModeChange(weather.location);
-  }, [weather.location]);
-  return <div className={backgroundClassName}></div>;
 }
 export default BackgroundAnimation;

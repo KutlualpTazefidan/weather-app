@@ -4,32 +4,9 @@ import "./Form.css";
 import { useState } from "react";
 
 function Form({ onAddActivity, onBackgroundBlur, onFetchWeather }) {
-  function onSubmitForm(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    onAddActivity(data);
-    console.log(e.target.elements);
-  }
   const [isAddActivityButtonPressed, setIsAddActivityButtonPressed] =
     useState(true);
   const [formClassName, setFormClassName] = useState("add-activity-form");
-  function handleAddActivityButtonPressed() {
-    setIsAddActivityButtonPressed(!isAddActivityButtonPressed);
-    isAddActivityButtonPressed
-      ? setFormClassName("add-activity-form active")
-      : setFormClassName("add-activity-form");
-  }
-
-  function createSunnyDay() {
-    onFetchWeather("sahara");
-  }
-  function createRainyDay() {
-    onFetchWeather("rainforest");
-  }
-  function createSnowyDay() {
-    onFetchWeather("arctic");
-  }
 
   return (
     <>
@@ -79,6 +56,29 @@ function Form({ onAddActivity, onBackgroundBlur, onFetchWeather }) {
       </div>
     </>
   );
+
+  function onSubmitForm(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    onAddActivity(data);
+  }
+  function handleAddActivityButtonPressed() {
+    setIsAddActivityButtonPressed(!isAddActivityButtonPressed);
+    isAddActivityButtonPressed
+      ? setFormClassName("add-activity-form active")
+      : setFormClassName("add-activity-form");
+  }
+
+  function createSunnyDay() {
+    onFetchWeather("sahara");
+  }
+  function createRainyDay() {
+    onFetchWeather("rainforest");
+  }
+  function createSnowyDay() {
+    onFetchWeather("arctic");
+  }
 }
 
 export default Form;
