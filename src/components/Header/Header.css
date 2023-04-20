@@ -2,7 +2,7 @@
     margin-top: 2rem;
     font-size: 3rem;
     z-index: 1;
-    color: var(--color-light);
+    /* color: var(--color-light); */
 }
 
 .weather-message {
@@ -10,6 +10,6 @@
     font-weight: 600;
     max-width: 20rem;
     z-index: 1;
-    color: var(--color-light);
+    /* color: var(--color-light); */
     white-space: pre-wrap;
 }

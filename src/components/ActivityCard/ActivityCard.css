@@ -4,7 +4,7 @@
     align-items: center;
     /* border: solid; */
     /* color: #3C486B; */
-    color: var(--color-light);
+    /* color: var(--color-light); */
     /* background-color: #F0F0F0; */
     padding: 0.5rem;
     margin: 1rem;
@@ -29,7 +29,7 @@
     background-color: transparent;
     border: none;
     font-size: 2.5rem;
-    color: var(--color-light);
+    color: var(--color-strong);
     margin-bottom: -0.5rem;
 
 }

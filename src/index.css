@@ -7,8 +7,10 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --color-strong: #f45050;
-  --color-dark: #3c486b;
+  /* --color-strong: #f45050; */
+  --color-strong: #ff0000;
+  /* --color-dark: #3c486b; */
+  --color-dark: #17181d;
   --color-light: #f0f0f0;
   --color-different: #F9D949;
 }

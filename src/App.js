@@ -18,11 +18,11 @@ function App() {
     "https://example-apis.vercel.app/api/weather/rainforest"
   );
   const [backgroundBlur, setBackgroundBlur] = useState("App");
-
+  const [textColorClass, setTextColorClass] = useState("App --darkTextColor");
   const weather = useFetchWeatherData(weatherURL);
 
   return (
-    <div className="App">
+    <div className={textColorClass}>
       <Header weather={weather} />
       <List
         activities={activities}
@@ -35,7 +35,10 @@ function App() {
         onBackgroundBlur={handleBackgroundBlur}
       />
       <div className="background-container">
-        <BackgroundAnimation weather={weather} />
+        <BackgroundAnimation
+          weather={weather}
+          onColorModeChange={handleColorMode}
+        />
       </div>
     </div>
   );
@@ -57,6 +60,11 @@ function App() {
     const URL = `https://example-apis.vercel.app/api/weather/${weatherLocation}`;
     setWeatherURL(URL);
     console.log(URL);
+  }
+  function handleColorMode(colorMode) {
+    if (colorMode === "Sahara") setTextColorClass("App --darkTextColor");
+    if (colorMode === "Arctic") setTextColorClass("App --strongTextColor");
+    if (colorMode === "Rainforest") setTextColorClass("App --lightTextColor");
   }
   // function clearLocalStorage() {
   //   setActivities([]);

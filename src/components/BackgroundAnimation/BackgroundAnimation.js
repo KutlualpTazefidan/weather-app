@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "./BackgroundAnimation.css";
 
-function BackgroundAnimation({ weather }) {
+function BackgroundAnimation({ weather, onColorModeChange }) {
   const [backgroundClassName, setBackgroundClassName] = useState(
     "background-image-container"
   );
@@ -106,6 +106,7 @@ function BackgroundAnimation({ weather }) {
       setBackgroundClassName("background-image-container");
     }
     console.log(weather.location);
+    onColorModeChange(weather.location);
   }, [weather.location]);
   return <div className={backgroundClassName}></div>;
 }

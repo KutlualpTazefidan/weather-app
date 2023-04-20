@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #3c486b;
+  color: var(--color-dark);
+  /* color: var(--color-light); */
   border: solid;
   border-radius: 1rem;
   border-color: hsl(225, 28%, 33%);
@@ -18,4 +19,16 @@
   margin: -1rem;
   overflow: hidden;
   z-index: 0;
+}
+
+.--darkTextColor {
+  color: var(--color-dark);
+}
+
+.--lightTextColor {
+  color: var(--color-light);
+}
+
+.--strongTextColor {
+  color: var(--color-strong);
 }
